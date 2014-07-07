@@ -4,7 +4,7 @@
 PortSystem      1.0
 PortGroup       github 1.0
 
-github.setup    peco peco 0.1.6 v
+github.setup    peco peco 0.2.0 v
 maintainers     withgod.jp:withgod
 name            peco
 categories      textproc
@@ -15,8 +15,8 @@ homepage        http://peco.github.io/
 
 description     Simplistic interactive filtering tool
 long_description peco is based on percol.... ${description}
-checksums       rmd160 09420ba3818d82b5cdb40c6863dd4a0c6a677bf3 \
-                sha256 5a6973b31b300c57389216687079e1592f5baae92538a992cab0995323a76494
+checksums       rmd160 7bc6904ba14db91f114dc8264140b8a168f93905 \
+                sha256 5f7a424cc7aa9021b05996660dcdbad629ac925618c3b94c1c12c82111020939
 
 depends_lib     port:go
 
@@ -25,8 +25,8 @@ use_configure       no
 build {
     #based on https://github.com/peco/homebrew-peco/blob/master/peco.rb
     file mkdir ${workpath}/go
-    file mkdir ${workpath}/go/src/github.com/lestrrat
-    ln -s ${worksrcpath} ${workpath}/go/src/github.com/lestrrat/peco
+    file mkdir ${workpath}/go/src/github.com/peco
+    ln -s ${worksrcpath} ${workpath}/go/src/github.com/peco/peco
     system "GOPATH=${workpath}/go go get github.com/jessevdk/go-flags"
     system "GOPATH=${workpath}/go go get github.com/mattn/go-runewidth"
     system "GOPATH=${workpath}/go go get github.com/nsf/termbox-go"
